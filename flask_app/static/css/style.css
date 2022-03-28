@@ -1,0 +1,156 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*  Begin styling for Index  */
+.index_header {
+    padding: 40px;
+    text-align: center;
+    background: #1f1f1f;
+    color: white;
+    font-size: 20px;
+}
+
+.both_forms {
+    margin-top: 20px;
+    display: flex;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.reg_form {
+    border: 3px solid #494747;
+    width: 30%;
+}
+
+.login_form {
+    border: 3px solid #494747;
+    width: 30%;
+}
+
+.reg_button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.login_button {
+    background-color: rgb(52, 102, 241);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+/*  End styling for Index  */
+
+/*  Begin styling for Dashboard  */
+.dash_nav {
+    display: flex;
+    justify-content: space-between;
+    background: #a3a3a3;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+}
+
+.home_button {
+    background-color: rgb(52, 102, 241);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.logout_button {
+    background-color: #327729;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+th {
+    border: 1px solid black;
+}
+
+td{
+    padding: 10px;
+}
+
+.edit_button {
+    background-color: #2174c2;
+    color: white;
+    padding: 7px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.delete_button {
+    background-color: #cf3232;
+    color: white;
+    padding: 7px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+}
+/*  End styling for Dashboard  */
+
+/*  Begin styling for Create  */
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+    background: #a3a3a3;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+}
+
+.add_task_button {
+    background-color: #504848;
+    color: white;
+    padding: 10px 15px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+}
+/*  End styling for Create  */
+
+/*  Begin styling for Edit  */
+.centered {
+    text-align: center;
+}
+
+.update_task_button {
+    background-color: #504848;
+    color: white;
+    padding: 7px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+}
+/*  End styling for Edit  */

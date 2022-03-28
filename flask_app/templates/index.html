@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register or Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="index_header">
+        <h1>To-Do List</h1>
+        <p>Begin Your Planning Here</p>
+    </div>
+    <div class="both_forms">
+        <div class="reg_form center">
+            <h1 class="center">Register...</h1><br>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color:red">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/register" method="post" class="center">
+                <input type="text" name="first_name" placeholder="First Name"><br><br>
+                <input type="text" name="last_name" placeholder="Last Name"><br><br>
+                <input type="text" name="email" placeholder="Email"><br><br>
+                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="password" name="password_confirm" placeholder="Confirm Password"><br><br>
+                <input type="submit" value="Register" class="reg_button">
+            </form>
+        </div>
+        <div class="login_form center">
+            <h1 class="center">or Login</h1><br>
+            <form action="/login" method="post" class="center">
+                <input type="text" name="email" placeholder="Email"><br><br>
+                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="submit" value="Login" class="login_button">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

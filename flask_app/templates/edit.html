@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main_nav">
+        <h1>Edit Task</h1>
+        <div class="nav_buttons">
+            <button class="home_button"><a href="/dashboard">Home</a></button>
+            <button class="logout_button"><a href="/logout">Logout</a></button>
+        </div>
+    </div><br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="centered">
+        <form action="/update/{{ task.id }}" method="post" class="edit_form">
+            <input type="text" name="title" value="{{ task.title }}"><br><br>
+            <input type="date" name="due_date" value="{{ task.due_date }}"><br><br>
+            <textarea name="details" rows="6" cols="20">{{ task.details }}</textarea><br><br>
+            <input type="submit" value="Update Task" class="update_task_button">
+        </form><br>
+        <button class="delete_button"><a href="/delete/{{ task.id }}">Delete Task</a></button>
+    </div>
+</body>
+</html>
