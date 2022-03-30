@@ -1,4 +1,6 @@
 import imp
+
+from pymysql import NULL
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 import re
@@ -24,27 +26,22 @@ class Task:
     def users_tasks(cls, data):
         query = "SELECT * from users JOIN tasks ON users.id = tasks.user_id WHERE users.id = %(id)s"
         users_tasks_db = connectToMySQL("todo_schema").query_db(query, data)
-
-        # ***COME BACK TO THIS - URGENT ***
-        # if not users_tasks_db:
-        # # create your user object as it should look with no tasks
-        # user = func_to_deal_w_user_no_tasks()
-        # else:
-
-        user = User(users_tasks_db[0])
-
-        for tasks in users_tasks_db:
-            task_data = {
-                "id" : tasks["tasks.id"],
-                "title" : tasks["title"],
-                "due_date" : tasks["due_date"],
-                "details" : tasks["details"],
-                "created_at" : tasks["created_at"],
-                "updated_at" : tasks["updated_at"],
-                "user_id" : tasks["user_id"]
-            }
-            user.tasks.append(Task(task_data))
+        if len(users_tasks_db) > 0:
+            user = User(users_tasks_db[0])
+            for tasks in users_tasks_db:
+                task_data = {
+                    "id" : tasks["tasks.id"],
+                    "title" : tasks["title"],
+                    "due_date" : tasks["due_date"],
+                    "details" : tasks["details"],
+                    "created_at" : tasks["created_at"],
+                    "updated_at" : tasks["updated_at"],
+                    "user_id" : tasks["user_id"]
+                }
+                user.tasks.append(Task(task_data))
             return user
+        else:
+            return NULL
 
     @classmethod
     def get_one_task(cls, data):
